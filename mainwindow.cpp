@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QStringList>
 #include <QTime>
+#include <QDate>
 #include <QFile>
 #include <QFileDialog>
 #include <QtSerialPort/QSerialPortInfo>
@@ -33,6 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     on_spinBox_valueChanged(1);
+
+
+    QTextCharFormat currentDayHighlight;
+    currentDayHighlight.setBackground(Qt::green);
+    QDate today = QDate::currentDate();
+    ui->calendarWidget->setDateTextFormat(today, currentDayHighlight);
 
 
 }
